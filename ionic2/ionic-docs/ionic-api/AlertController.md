@@ -17,11 +17,16 @@ In the array of buttons, each button includes properties for its text, and optio
 
 Optionally, a role property can be added to a button, such as cancel. If a cancel role is on one of the buttons, then if the alert is dismissed by tapping the backdrop, then it will fire the handler from the button with a cancel role.
 
-Alert Inputs
+你也可以给button添加role属性，例如cancel。如果这些按钮中有role属性为cancel的按钮，在你通过点击背景来关闭alert时这个按钮的handler就会被触发。
+
+### Alert Inputs添加输入框
+
 Alerts can also include several different inputs whose data can be passed back to the app. Inputs can be used as a simple way to prompt users for information. Radios, checkboxes and text inputs are all accepted, but they cannot be mixed. For example, an alert could have all radio button inputs, or all checkbox inputs, but the same alert cannot mix radio and checkbox inputs. Do note however, different types of "text"" inputs can be mixed, such as url, email, text, etc. If you require a complex form UI which doesn't fit within the guidelines of an alert then we recommend building the form within a modal instead.
 
-Usage
+alert也可以带有几个不同的输入框来将数据传给应用。这是一种简单的方式来提示用户输入信息。可以使用radios，checkboxs，和text inputs但是不能混用。然而你要注意了，不同的text inputs是可以混用的，例如url，email，text等等。如果你需要一个完整的表单UI然而在教程中的alert里没有合适的选择，我们推荐你使用model来新建表单。
 
+Usage用法
+```
 import { AlertController } from 'ionic-angular';
 
 constructor(private alertCtrl: AlertController) {
@@ -97,37 +102,44 @@ presentPrompt() {
   });
   alert.present();
 }
-Instance Members
+```
+Instance Members 实例成员
 
  config
+
  create(opts)
+
 Display an alert with a title, inputs, and buttons
 
-Param	Type	Details
-opts	AlertOptions	
-Alert. See the table below
-Advanced
+Param	|Type|	Details
+-|-|-
+opts|	AlertOptions	|Alert. See the table below
+
+#### Advanced
 
 Alert options
 
-Property	Type	Description
-title	string	The title for the alert.
-subTitle	string	The subtitle for the alert.
-message	string	The message for the alert.
-cssClass	string	Additional classes for custom styles, separated by spaces.
-inputs	array	An array of inputs for the alert. See input options.
-buttons	array	An array of buttons for the alert. See buttons options.
-enableBackdropDismiss	boolean	Whether the alert should be dismissed by tapping the backdrop. Default true.
+Property|	Type|	Description
+-|-|-
+title	|string	|alert的标题.
+subTitle|	string	|alert的小标题.
+message|	string	|alert的消息.
+cssClass|	string|	附加的CSS类, 使用空格分隔.
+inputs|	array	|一组inputs，见Input options.
+buttons	|array|	An array of buttons for the alert. See buttons options.
+enableBackdropDismiss|	boolean|	Whether the alert should be dismissed by tapping the backdrop. Default true.
+
 Input options
 
-Property	Type	Description
-type	string	The type the input should be: text, tel, number, etc.
-name	string	The name for the input.
-placeholder	string	The input's placeholder (for textual/numeric inputs)
-value	string	The input's value.
-label	string	The input's label (only for radio/checkbox inputs)
-checked	boolean	Whether or not the input is checked.
-id	string	The input's id.
+Property|	Type|	Description
+-|-|-
+type	|string	|The type the input should be: text, tel, number, etc.
+name|	string|	The name for the input.
+placeholder|	string|	The input's placeholder (for textual/numeric inputs)
+value|	string|	The input's value.
+label|	string|	The input's label (only for radio/checkbox inputs)
+checked|	boolean|	Whether or not the input is checked.
+id|	string|	The input's id.
 Button options
 
 Property	Type	Description
